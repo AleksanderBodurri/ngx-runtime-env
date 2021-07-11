@@ -33,6 +33,8 @@ import { environment } from 'src/environments/environment';
   declarations: [ AppComponent ],
   imports: [ 
     BrowserModule,
+    // import HttpClientModule
+    HttpClientModule
     // import RuntimeEnvModule module and pass in static environment
     RuntimeEnvModule.forRoot(environment)
   ],

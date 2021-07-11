@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "build:prod": "ng build ngx-runtime-env --prod"
+    "build:prod": "ng build ngx-runtime-env --prod && cp README.md dist/ngx-runtime-env/README.md"
   },
   "private": true,
   "dependencies": {

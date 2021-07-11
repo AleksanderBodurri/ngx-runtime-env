@@ -1,6 +1,6 @@
 {
   "name": "ngx-runtime-env",
-  "version": "0.0.1",
+  "version": "1.0.3",
   "peerDependencies": {
     "@angular/common": "^11.0.9",
     "@angular/core": "^11.0.9"
