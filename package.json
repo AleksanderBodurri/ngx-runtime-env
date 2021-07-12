@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "build:prod": "ng build ngx-runtime-env --prod && cp README.md dist/ngx-runtime-env/README.md"
+    "build:prod": "ng build ngx-runtime-env --prod && cp README.md dist/ngx-runtime-env/README.md",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +31,7 @@
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "cypress": "^7.7.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.1.0",
