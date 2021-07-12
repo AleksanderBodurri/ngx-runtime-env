@@ -30,11 +30,11 @@ const setRuntimeEnv = (environment: any, config: Partial<RuntimeEnvConfig> = {})
 
 @NgModule()
 export class RuntimeEnvModule {
-  static forRoot(environment: any): ModuleWithProviders<RuntimeEnvModule> {
+  static forRoot(environment: any, config: Partial<RuntimeEnvConfig> = {}): ModuleWithProviders<RuntimeEnvModule> {
     return {
       ngModule: RuntimeEnvModule,
       providers: [
-        setRuntimeEnv(environment)
+        setRuntimeEnv(environment, config)
       ]
     };
   }
