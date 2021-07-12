@@ -21,8 +21,7 @@
     ],
     "paths": {
       "ngx-runtime-env": [
-        "dist/ngx-runtime-env/ngx-runtime-env",
-        "dist/ngx-runtime-env"
+        "projects/ngx-runtime-env/src/public-api.ts",
       ]
     }
   },
