@@ -16,11 +16,20 @@ workflows:
           yarn: true
           executor: node-and-browsers
       - cypress/run:
-          name: 'E2E'
+          name: 'E2E - No Config'
           browser: chrome
           executor: node-and-browsers
           yarn: true
-          start: yarn start
+          start: yarn start:demo:no-config
+          wait-on: 'http://localhost:4200'
+          requires:
+            - install_cypress
+      - cypress/run:
+          name: 'E2E - With Config'
+          browser: chrome
+          executor: node-and-browsers
+          yarn: true
+          start: yarn start:demo:config
           wait-on: 'http://localhost:4200'
           requires:
             - install_cypress
