@@ -1,11 +1,12 @@
 {
   "name": "ngx-runtime-env",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "peerDependencies": {
     "@angular/common": "^11.0.9",
     "@angular/core": "^11.0.9"
   },
   "dependencies": {
     "tslib": "^2.0.0"
-  }
+  },
+  "homepage": "https://github.com/AleksanderBodurri/ngx-runtime-env"
 }

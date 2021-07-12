@@ -1,6 +1,18 @@
+[![npm version](https://badge.fury.io/js/ngx-runtime-env.svg)](https://badge.fury.io/js/ngx-runtime-env)
+[![AleksanderBodurri](https://circleci.com/gh/AleksanderBodurri/ngx-runtime-env.svg?style=svg)](https://app.circleci.com/pipelines/github/AleksanderBodurri/ngx-runtime-env)
+
 # Runtime Env
 
 Runtime environment solution for Angular.
+
+# Install
+```
+npm i ngx-runtime-env
+```
+or
+```
+yarn add ngx-runtime-env
+```
 
 # Usage
 
