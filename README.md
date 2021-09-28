@@ -48,7 +48,7 @@ import { environment } from '../environments/environment';
   imports: [ 
     BrowserModule,
     // import HttpClientModule
-    HttpClientModule
+    HttpClientModule,
     // import RuntimeEnvModule module and pass in static environment
     RuntimeEnvModule.forRoot(environment)
   ],
@@ -80,7 +80,13 @@ export class AppComponent implements OnInit {
 
 # Configuration
 
-You can configure the url (relative or absolute) that your environment can be found at in the following way:
+| Name  | Type  | Default  | Description |   |
+|---|---|---|---|---|
+| envUrl  | string  | `assets/environment`  | Specify where the runtime environment can be found.  |   |
+|  bootstrapAppModule | `'before' \| 'after'`  | `'after'`  | Whether to bootstrap the application module before or after the runtime environment is loaded.  |   |
+|   |   |   |   |   |
+
+### Example
 
 In: `app.module.ts`
 ```ts
@@ -95,9 +101,10 @@ import { environment } from '../environments/environment';
   declarations: [ AppComponent ],
   imports: [ 
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
     RuntimeEnvModule.forRoot(environment, {
-      envUrl: '/path/to/my/config' // specify where the environment can be found
+      envUrl: '/path/to/my/config', // looks for runtime environment in envUrl
+      bootstrapAppModule: 'before' // does not wait for runtime environment to bootstrap App Module
     })
   ],
   providers: [],

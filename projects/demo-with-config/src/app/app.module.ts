@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RuntimeEnvModule } from 'ngx-runtime-env';
-import { environment } from 'projects/demo/src/environments/environment';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,10 @@ import { environment } from 'projects/demo/src/environments/environment';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RuntimeEnvModule.forRoot(environment, { envUrl: '/assets/path/to/config/runtime-env.json' })
+    RuntimeEnvModule.forRoot(environment, {
+       envUrl: '/assets/path/to/config/runtime-env.json',
+       bootstrapAppModule: 'after'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

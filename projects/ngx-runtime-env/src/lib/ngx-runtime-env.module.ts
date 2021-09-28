@@ -3,11 +3,13 @@ import { APP_INITIALIZER, ModuleWithProviders, NgModule } from '@angular/core';
 
 export interface RuntimeEnvConfig {
   envUrl: string;
+  bootstrapAppModule: 'before' | 'after';
 }
 
 const setDefaults = (config: Partial<RuntimeEnvConfig>): RuntimeEnvConfig => {
   return {
-    envUrl: config.envUrl ?? '/assets/environment.json'
+    envUrl: config.envUrl ?? '/assets/environment.json',
+    bootstrapAppModule: 'after',
   }
 }
 
@@ -17,11 +19,16 @@ const setRuntimeEnv = (environment: any, config: Partial<RuntimeEnvConfig> = {})
   return {
     provide: APP_INITIALIZER,
     useFactory: (httpClient: HttpClient) => {
-      return async () => {
-        await httpClient.get(envUrl).toPromise().then((runtimeEnvironment: any) => {
-          Object.keys(runtimeEnvironment).forEach(key => environment[key] = runtimeEnvironment[key]);
-        });
-      };
+      
+      const envLookupPromise = () => httpClient.get(envUrl).toPromise().then((runtimeEnvironment: any) => {
+        Object.keys(runtimeEnvironment).forEach(key => environment[key] = runtimeEnvironment[key]);
+      });
+
+      if (config.bootstrapAppModule === 'before') {
+        return () => new Promise<void>((resolve) => { envLookupPromise(); resolve() });
+      }
+
+      return () => new Promise<void>((resolve) => envLookupPromise().then(() => resolve()));
     },
     deps: [HttpClient],
     multi: true
