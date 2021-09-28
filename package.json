@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "build:prod": "ng build ngx-runtime-env --prod && cp README.md dist/ngx-runtime-env/README.md",
+    "build:prod": "ng build ngx-runtime-env --prod && cp README.md dist/ngx-runtime-env/README.md && cp logo.svg dist/ngx-runtime-env/logo.svg",
     "e2e": "ng e2e",
     "start:demo:no-config": "ng serve demo",
     "start:demo:config": "ng serve demo-with-config"
