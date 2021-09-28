@@ -1,7 +1,7 @@
 [![npm version](https://badge.fury.io/js/ngx-runtime-env.svg)](https://badge.fury.io/js/ngx-runtime-env)
 [![AleksanderBodurri](https://circleci.com/gh/AleksanderBodurri/ngx-runtime-env.svg?style=svg)](https://app.circleci.com/pipelines/github/AleksanderBodurri/ngx-runtime-env)
 
-<img src="logo.svg" alt="ngx-runtime-env" width="350"/>
+<img src="https://github.com/AleksanderBodurri/ngx-runtime-env/raw/main/logo.svg" alt="ngx-runtime-env" width="350"/>
 
 # Runtime Env
 
