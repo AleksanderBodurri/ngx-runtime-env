@@ -84,7 +84,7 @@ export class AppComponent implements OnInit {
 
 | Name  | Type  | Default  | Description |   |
 |---|---|---|---|---|
-| envUrl  | string  | `assets/environment`  | Specify where the runtime environment can be found.  |   |
+| envUrl  | string  | `assets/environment.json`  | Specify where the runtime environment can be found.  |   |
 |  bootstrapAppModule | `'before' \| 'after'`  | `'after'`  | Whether to bootstrap the application module before or after the runtime environment is loaded.  |   |
 |   |   |   |   |   |
 
