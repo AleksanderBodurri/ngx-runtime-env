@@ -4,12 +4,14 @@ import { APP_INITIALIZER, ModuleWithProviders, NgModule } from '@angular/core';
 export interface RuntimeEnvConfig {
   envUrl: string;
   bootstrapAppModule: 'before' | 'after';
+  optional: boolean
 }
 
 const setDefaults = (config: Partial<RuntimeEnvConfig>): RuntimeEnvConfig => {
   return {
     envUrl: config.envUrl ?? '/assets/environment.json',
     bootstrapAppModule: 'after',
+    optional: false
   }
 }
 
@@ -28,7 +30,11 @@ const setRuntimeEnv = (environment: any, config: Partial<RuntimeEnvConfig> = {})
         return () => new Promise<void>((resolve) => { envLookupPromise(); resolve() });
       }
 
-      return () => new Promise<void>((resolve) => envLookupPromise().then(() => resolve()));
+      if (config.optional) {
+        return () => new Promise<void>((resolve) => envLookupPromise().then(resolve).catch(resolve));
+      }
+
+      return () => new Promise<void>((resolve) => envLookupPromise().then(resolve));
     },
     deps: [HttpClient],
     multi: true
