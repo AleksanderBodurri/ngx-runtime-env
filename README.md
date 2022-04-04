@@ -1,3 +1,9 @@
+# What problem does this solve library solve?
+
+Many Angular applications depend on configuration to modify application behaviour. You may want multiple instances of the same Angular App to behave differently based on some configuration. Angular provides [a way to do this at build time](https://angular.io/guide/build#configuring-application-environments) but often this solution is not flexible enough if engineers want to configure their app after it's been built/deployed.
+
+`ngx-runtime-env` solves this. It fetches a application environment at runtime, and then mutates the existing Angular environment accordingly. See [Usage](#usage) for an example.
+
 [![npm version](https://badge.fury.io/js/ngx-runtime-env.svg)](https://badge.fury.io/js/ngx-runtime-env)
 [![AleksanderBodurri](https://circleci.com/gh/AleksanderBodurri/ngx-runtime-env.svg?style=svg)](https://app.circleci.com/pipelines/github/AleksanderBodurri/ngx-runtime-env)
 
