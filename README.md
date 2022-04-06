@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/AleksanderBodurri/ngx-runtime-env/raw/main/logo.svg?" alt="ngx-runtime-env" width="350"/>
+</p>
+
 # What problem does this solve library solve?
 
 Many Angular applications depend on configuration to modify application behaviour. You may want multiple instances of the same Angular app to behave differently based on some configuration. Angular provides [a way to do this at build time](https://angular.io/guide/build#configuring-application-environments) but often this solution is not flexible enough if engineers want to configure their app after it's been built/deployed.
@@ -6,8 +10,6 @@ Many Angular applications depend on configuration to modify application behaviou
 
 [![npm version](https://badge.fury.io/js/ngx-runtime-env.svg)](https://badge.fury.io/js/ngx-runtime-env)
 [![AleksanderBodurri](https://circleci.com/gh/AleksanderBodurri/ngx-runtime-env.svg?style=svg)](https://app.circleci.com/pipelines/github/AleksanderBodurri/ngx-runtime-env)
-
-<img src="https://github.com/AleksanderBodurri/ngx-runtime-env/raw/main/logo.svg?" alt="ngx-runtime-env" width="350"/>
 
 # Runtime Env
 
