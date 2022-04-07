@@ -10,27 +10,26 @@ export interface RuntimeEnvConfig {
 const setDefaults = (config: Partial<RuntimeEnvConfig>): RuntimeEnvConfig => {
   return {
     envUrl: config.envUrl ?? '/assets/environment.json',
-    bootstrapAppModule: 'after',
-    optional: false
+    bootstrapAppModule: config.bootstrapAppModule ?? 'after',
+    optional: config.optional ?? false
   }
 }
 
 const setRuntimeEnv = (environment: any, config: Partial<RuntimeEnvConfig> = {}) => {
-  const { envUrl } = setDefaults(config);
+  const { envUrl, bootstrapAppModule, optional } = setDefaults(config);
 
   return {
     provide: APP_INITIALIZER,
     useFactory: (httpClient: HttpClient) => {
-      
       const envLookupPromise = () => httpClient.get(envUrl).toPromise().then((runtimeEnvironment: any) => {
         Object.keys(runtimeEnvironment).forEach(key => environment[key] = runtimeEnvironment[key]);
       });
 
-      if (config.bootstrapAppModule === 'before') {
+      if (bootstrapAppModule === 'before') {
         return () => new Promise<void>((resolve) => { envLookupPromise(); resolve() });
       }
 
-      if (config.optional) {
+      if (optional) {
         return () => new Promise<void>((resolve) => envLookupPromise().then(resolve).catch(resolve));
       }
 
